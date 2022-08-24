@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+
+	
+	<title>Rock Paper Scissor</title>
+
+    <style>
+        </style>
+</head>
+<body background="21.jpg">
+    <center>
+	<h2 style="color: rgb(255, 248, 248)">Computer Choice: <span id="computer-choice"></span></h2>
+    <h2 style="color: rgb(255, 248, 248)">Your Choice: <span id="user-choice"></span></h2>
+    <h2 style="color: rgb(255, 248, 248)">Result: <span id="result"></span></h2>
+
+    <button style="background-color: #98a599;
+    
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  "   id="rock">rock</button>
+    <button  style="background-color: #98a599;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+  
+    font-size: 16px;
+    margin: 4px 2px;
+    
+  
+
+ 
+  " id="paper">paper</button>
+    <button  style="background-color: #98a599;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+   
+    font-size: 16px;
+    margin: 4px 2px;
+    
+  " id="scissors">scissors</button>
+
+   
+</center>
+</body>
+</html>
+ 
+
+
+
+
+    <script>
+
+
+        const computerChoiceDisplay = document.getElementById('computer-choice')
+const userChoiceDisplay = document.getElementById('user-choice')
+const resultDisplay = document.getElementById('result')
+const possibleChoices = document.querySelectorAll('button')
+let userChoice
+let computerChoice
+let result
+
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+  userChoice = e.target.id
+  userChoiceDisplay.innerHTML = userChoice
+  generateComputerChoice()
+  getResult()
+}))
+
+function generateComputerChoice() {
+    //// / Returns a random integer 
+  const randomNumber = Math.floor(Math.random() * 3) + 1 // or you can use possibleChoices.length
+  
+  if (randomNumber === 1) {
+    computerChoice = 'rock'
+  }
+  if (randomNumber === 2) {
+    computerChoice = 'scissors'
+  }
+  if (randomNumber === 3) {
+    computerChoice = 'paper'
+  }
+  computerChoiceDisplay.innerHTML = computerChoice
+}
+
+function getResult() {
+  if (computerChoice === userChoice) {
+    result = 'its a draw!'
+  }
+  if (computerChoice === 'rock' && userChoice === "paper") {
+    result = 'you win!'
+  }
+  if (computerChoice === 'rock' && userChoice === "scissors") {
+    result = 'you lost!'
+  }
+  if (computerChoice === 'paper' && userChoice === "scissors") {
+    result = 'you win!'
+  }
+  if (computerChoice === 'paper' && userChoice === "rock") {
+    result = 'you lose!'
+  }
+  if (computerChoice === 'scissors' && userChoice === "rock") {
+    result = 'you win!'
+  }
+  if (computerChoice === 'scissors' && userChoice === "paper") {
+    result = 'you lose!'
+  }
+  resultDisplay.innerHTML = result
+}
+       
+    </script>
+</body>
+</html>

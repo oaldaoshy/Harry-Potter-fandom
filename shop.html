@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style project.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+      * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+    </style>
+</head>
+<body style="background-color:black;">
+
+    
+
+
+
+
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="17.webp" style="width:100%">
+          <div  class="text">wand shop</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="18.gif" style="width:100%">
+          <div class="text">trunk station</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="19.webp" style="width:100%">
+          <div class="text">Clothing collection</div>
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        <center>
+<img src="data:image/jpeg;base64,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">
+
+
+<h2>shop by house</h2><hr>
+
+        </center>
+
+
+        <div class="row">
+            <div class="column">
+              <img style="background-color: red;" src="https://cdn.shopify.com/s/files/1/0514/6332/3817/t/5/assets/gryffindor-crest.svg?v=171111364849555272811610063526" >
+            <h2 style="color: aliceblue;">gryffindor</h2>
+            </div>
+            <div class="column">
+              <img style="background-color: green;" src="https://cdn.shopify.com/s/files/1/0514/6332/3817/t/5/assets/slytherin-crest.svg?v=164901104523693593731612317316" >
+            <h2 style="color: aliceblue;">slytherin</h2>
+            </div>
+            <div class="column">
+              <img style="background-color: blue;" src="https://cdn.shopify.com/s/files/1/0514/6332/3817/t/5/assets/ravenclaw-crest.svg?v=168134606863272937961610063557" >
+            </div><div class="column">
+                <img style="background-color:orange;" src="https://cdn.shopify.com/s/files/1/0514/6332/3817/t/5/assets/hufflepuff-crest.svg?v=122733404310360764461612317293" >
+              <h2 style="color: aliceblue;">ravenclaw-crest</h2>
+              </div>
+          </div>
+        <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+        
+</body>
+</html>

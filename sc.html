@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+* {  
+  box-sizing: border-box;  
+ }  
+ body {  
+   
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 100%);  
+  font-family: "Poppins", sans-serif;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  height: 100vh;  
+ 
+ }  
+ .quiz-container {  
+  background-color: #fff;  
+  border-radius: 10px;  
+ 
+  width: 600px;  
+ 
+  overflow: hidden;  
+ }  
+ .quiz-header {  
+  padding: 4rem;  
+ }  
+ h2 {  
+  padding: 1rem;  
+  text-align: center;  
+  
+ }  
+ ul {  
+  list-style-type: none;  
+  padding: 0;  
+ }  
+ ul li {  
+  font-size: 1.2rem;  
+  margin: 1rem 0;  
+ }  
+ ul li label {  
+  cursor: pointer;  
+ }  
+ button {  
+  background-color: #8e44ad;  
+  color: #fff;  
+  
+  display: block;  
+  width: 100%;  
+  cursor: pointer;  
+    
+  padding: 1.3rem;  
+ }  
+ button:hover {  
+  background-color: #732d91;  
+ }  
+ button:focus {  
+  outline: none;  
+  background-color: #5e3370;  
+ }  
+  </style>
+</head>
+<body>
+  <div class="quiz-container" id="quiz">  
+    <div class="quiz-header">  
+     <h2 id="question">Question is loading...</h2>  
+     <ul>  
+      <li>  
+       <input type="radio" name="answer" id="a" class="answer" />  
+       <label for="a" id="a_text">Answer...</label>  
+      </li>  
+      <li>  
+       <input type="radio" name="answer" id="b" class="answer" />  
+       <label for="b" id="b_text">Answer...</label>  
+      </li>  
+  
+     </ul>  
+    </div>  
+    <button id="submit">Submit</button>  
+   </div>  
+  <script>const quizData = [  
+    {  
+     question: "In the game of Quidditch, how many possible fouls are there??",  
+     a: "700",  
+     b: "800",  
+     
+     correct: "a",  
+    },  
+    {  
+     question: "How many staircases in all did the magical castle of Hogwarts have??",  
+     a: "111",  
+     b: "142",  
+    
+     correct: "b",  
+    },  
+    {  
+     question: "By what other name are Wolfsbane and Monkshood, also known as??",  
+     a: "kidadl",  
+     b: "Aconite",  
+    
+     correct: "b",  
+    },  
+    {  
+     question: "How old was Nicholas Flamel, the co-creator of the Philosopher's Stone, when he proceeded to destroy it??",  
+     a: "665 years old",  
+     b: "199years old",  
+    
+     correct: "a",  
+    },  
+   ];  
+   const quiz = document.getElementById("quiz");  
+   const answerElements = document.querySelectorAll(".answer");  
+   const questionElement = document.getElementById("question");  
+   const a_text = document.getElementById("a_text");  
+   const b_text = document.getElementById("b_text");  
+  
+   const submitButton = document.getElementById("submit");  
+   let currentQuiz = 0;  
+   let score = 0;  
+   const deselectAnswers = () => {  
+    answerElements.forEach((answer) => (answer.checked = false));  
+   };  
+   const getSelected = () => {  
+    let answer;  
+    answerElements.forEach((answerElement) => {  
+     if (answerElement.checked) answer = answerElement.id;  
+    });  
+    return answer;  
+   };  
+   const loadQuiz = () => {  
+    deselectAnswers();  
+    const currentQuizData = quizData[currentQuiz];  
+    questionElement.innerText = currentQuizData.question;  
+    a_text.innerText = currentQuizData.a;  
+    b_text.innerText = currentQuizData.b;  
+    
+   };  
+   loadQuiz();  
+   submitButton.addEventListener("click", () => {  
+    const answer = getSelected();  
+    if (answer) {  
+     if (answer === quizData[currentQuiz].correct) score++;  
+     currentQuiz++;  
+     if (currentQuiz < quizData.length) loadQuiz();  
+     else {  
+      quiz.innerHTML = `  
+         <h2>You answered ${score}/${quizData.length} questions correctly</h2>  
+         <button onclick="history.go(0)">Play Again</button>  
+       ` // location.reload() won't work in CodePen for security reasons;  
+     }  
+    }  
+   });  </script>
+</body>
+</html>
